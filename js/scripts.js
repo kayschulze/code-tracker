@@ -49,25 +49,50 @@ var questionSevenTracker = function(question7Val) {
 }
 
 var frontScore = function() {
-
+  frontScore = 0;
+  if (questionOneTracker === "f") {
+    frontScore += frontScore;
+  }
+  if (questionTwoTracker === "f") {
+    frontScore += frontScore;
+  }
+  if (questionThreeTracker === "f") {
+    frontScore += frontScore;
+  }
+  if (questionFourTracker === "f") {
+    frontScore += frontScore;
+  }
+  return frontScore;
 }
 
 var backScore = function() {
-
+  backScore = 0;
+  if (questionOneTracker === "b") {
+    backScore += backScore;
+  }
+  if (questionTwoTracker === "b") {
+    backScore += backScore;
+  }
+  if (questionThreeTracker === "b") {
+    backScore += backScore;
+  }
+  if (questionFourTracker === "b") {
+    backScore += backScore;
+  }
+  return backScore;
 }
 
 var frontOrBack = function(frontScore, backScore) {
   if (backScore > frontScore) {
-    return "back";
+    $(".back-end").show();
   }
   else if (frontScore > backScore) {
-    return "front";
+    $(".css-design").show();
   }
   else {
-    return "either";
+    $(".error").show();
   }
 }
-
 
 $(function() {
   $("#choose-language").submit(function(event) {
@@ -80,8 +105,11 @@ $(function() {
     var question6Val = $("#question6").val());
     var question7Val = $("#question7").val());
 
-    var frontEnd = 0;
-    var backEnd = 0;
+    var frontEnd = frontScore(question1Val, question2Val, question3Val, question4Val);
+    var backEnd = backScore(question1Val, question2Val, question3Val, question4Val);
+
+    frontOrBack(frontScore, backScore);
+
     var cSharpTracker = 0;
     var javaTracker = 0;
     var phpTracker = 0;

@@ -25,6 +25,10 @@ h3 {
   display: none;
 }
 
+.error {
+  display: none;
+}
+
 .c-sharp {
   display: none;
 }
