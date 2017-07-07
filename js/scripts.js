@@ -34,23 +34,6 @@ var questionFourTracker = function(question4Val) {
   }
 };
 
-/*var questionFiveTracker = function(question5Val) {
-  if (question5Val === "internet") {
-    return ;
-  }
-}
-var questionSixTracker = function(question6Val) {
-  if (question6Val === "layout" || question6Val === "fontstyle") {
-    return 0;
-  }
-};
-
-var questionSevenTracker = function(question7Val) {
-  if (question7Val === "layout" || question7Val === "fontstyle") {
-    return 0;
-  }
-};*/
-
 var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker) {
   frontScore = 0;
   if (questionOneTracker === "f") {
@@ -184,9 +167,6 @@ $(function() {
     questionTwoTracker = questionTwoTracker(question2Val);
     questionThreeTracker = questionThreeTracker(question3Val);
     questionFourTracker = questionFourTracker(question4Val);
-    /*questionFiveTracker = questionFiveTracker(question5Val);
-    questionSixTracker = questionSixTracker(question6Val);
-    questionSevenTracker = questionSevenTracker(question7Val);*/
 
     var frontEnd = frontScore(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker);
     var backEnd = backScore(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker);
