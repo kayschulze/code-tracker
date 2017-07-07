@@ -75,7 +75,7 @@ var frontOrBack = function(frontScore, backScore) {
   else if (frontScore > backScore) {
     $(".css-design").show();
   }
-  else if (frontScore == backScore) {
+  else if (frontScore === backScore) {
     $(".either").show();
     $(".css-design").show();
     $(".back-end").show();
@@ -86,55 +86,59 @@ var frontOrBack = function(frontScore, backScore) {
 };
 
 var cSharpScore = function(question5Val, question6Val, question7Val) {
-  cSharpTracker = 0;
-  if (question5Val == "software") {
+  parseInt((cSharpTracker = 0));
+  if (question5Val === "software") {
     cSharpTracker += 1;
   }
-  if (question6Val == "software") {
+  if (question6Val === "software") {
     cSharpTracker += 1;
   }
-  if (question7Val == "large") {
+  if (question7Val === "large") {
     cSharpTracker += 1;
   }
+  return cSharpTracker;
 };
 
 var javaScore = function(question5Val, question6Val, question7Val) {
-  javaTracker = 0;
-  if (question5Val == "software") {
+  parseInt(javaTracker = 0);
+  if (question5Val === "software") {
     javaTracker += 1;
   }
-  if (question6Val == "software" || question5Val == "mobile") {
+  if (question6Val === "software" || question5Val === "mobile") {
     javaTracker += 1;
   }
-  if (question7Val == "large") {
+  if (question7Val === "large") {
     javaTracker += 1;
   }
+  return javaTracker;
 };
 
 var phpScore = function(question5Val, question6Val, question7Val) {
-  phpTracker = 0;
-  if (question5Val == "internet") {
+  parseInt(phpTracker = 0);
+  if (question5Val === "internet") {
     phpTracker += 1;
   }
-  if (question6Val == "web") {
+  if (question6Val === "web") {
     phpTracker += 1;
   }
-  if (question7Val == "government" || "startup") {
+  if (question7Val === "government" || question7Val = "startup") {
     phpTracker += 1;
   }
+  return phpTracker;
 };
 
 var rubyScore = function(question5Val, question6Val, question7Val) {
-  rubyTracker = 0;
-  if (question5Val == "internet") {
+  parseInt(rubyTracker = 0);
+  if (question5Val === "internet") {
     rubyTracker += 1;
   }
-  if (question6Val == "web") {
+  if (question6Val === "web") {
     rubyTracker += 1;
   }
-  if (question7Val == "startup") {
+  if (question7Val === "startup") {
     rubyTracker += 1;
   }
+  return rubyScore;
 };
 
 var bestLanguage = function(cSharpScore, javaScore, phpScore, javaScore) {
@@ -145,12 +149,12 @@ var bestLanguage = function(cSharpScore, javaScore, phpScore, javaScore) {
     $(".java").show();
   }
   if (phpScore >= cSharpScore && phpScore >= javaScore && phpScore >= rubyScore) {
-    $(".java").show();
+    $(".php").show();
   }
   if (rubyScore >= cSharpScore && rubyScore >= javaScore && rubyScore >= phpScore) {
-    $(".java").show();
+    $(".ruby").show();
   }
-}
+};
 
 $(function() {
   $("#codingsurvey").submit(function(event) {
@@ -173,12 +177,13 @@ $(function() {
 
     frontOrBack(frontEnd, backEnd);
 
-    cSharpScore(question5Val, question6Val, question7Val);
-    javaScore(question5Val, question6Val, question7Val);
-    phpScore(question5Val, question6Val, question7Val);
-    rubyScore(question5Val, question6Val, question7Val);
+    if (backEnd >= frontEnd) {
+      cSharpScore = cSharpScore(question5Val, question6Val, question7Val);
+      javaScore = javaScore(question5Val, question6Val, question7Val);
+      phpScore = phpScore(question5Val, question6Val, question7Val);
+      rubyScore = 0;//rubyScore(question5Val, question6Val, question7Val);
 
-    bestLanguage(cSharpScore, javaScore, phpScore, javaScore);
-
+      bestLanguage(cSharpScore, javaScore, phpScore, rubyScore);
+    }
   });
 });
