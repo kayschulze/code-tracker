@@ -95,15 +95,16 @@ var frontOrBack = function(frontScore, backScore) {
 }
 
 $(function() {
-  $("#choose-language").submit(function(event) {
+  $("#codingsurvey").submit(function(event) {
+    alert("I'm lovin' it!");
     event.preventDefault();
-    var question1Val = $("#question1").val());
-    var question2Val = $("#question2").val());
-    var question3Val = $("#question3").val());
-    var question4Val = $("#question4").val());
-    var question5Val = $("#question5").val());
-    var question6Val = $("#question6").val());
-    var question7Val = $("#question7").val());
+    var question1Val = $("input:radio[name=question1]:checked").val());
+    var question2Val = $("input:radio[name=question2]:checked").val());
+    var question3Val = $("input:radio[name=question3]:checked").val());
+    var question4Val = $("input:radio[name=question4]:checked").val());
+    var question5Val = $("input:radio[name=question5]:checked").val());
+    var question6Val = $("input:radio[name=question6]:checked").val());
+    var question7Val = $("input:radio[name=question7]:checked").val());
 
     var frontEnd = frontScore(question1Val, question2Val, question3Val, question4Val);
     var backEnd = backScore(question1Val, question2Val, question3Val, question4Val);
@@ -115,5 +116,5 @@ $(function() {
     var phpTracker = 0;
     var rubyTracker = 0;
 
-  })
-})
+  });
+});
