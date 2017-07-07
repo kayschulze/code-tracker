@@ -1,3 +1,7 @@
+h3 {
+  text-decoration: underline;
+}
+
 .coding-choices {
   width: 15%;
   float: left;
@@ -11,4 +15,24 @@
 .language-information {
   width: 30%;
   float: left;
+}
+
+.css-design {
+  display: none;
+}
+
+.c-sharp {
+  display: none;
+}
+
+.java {
+  display: none;
+}
+
+.php {
+  display: none;
+}
+
+.ruby {
+  display: none;
 }
