@@ -5,7 +5,7 @@ var questionOneTracker = function(question1Val) {
   else {
     return "b";
   }
-}
+};
 
 var questionTwoTracker = function(question2Val) {
   if (question2Val === "rearrange" || question2Val === "swatches") {
@@ -14,7 +14,7 @@ var questionTwoTracker = function(question2Val) {
   else {
     return "b";
   }
-}
+};
 
 var questionThreeTracker = function(question3Val) {
   if (question3Val === "art") {
@@ -23,7 +23,8 @@ var questionThreeTracker = function(question3Val) {
   else {
     return "b";
   }
-}
+};
+
 var questionFourTracker = function(question4Val) {
   if (question4Val === "design") {
     return "f";
@@ -31,44 +32,52 @@ var questionFourTracker = function(question4Val) {
   else {
     return "b";
   }
-}
+};
+
 var questionFiveTracker = function(question5Val) {
   if (question5Val === "internet") {
     return 0;
   }
 }
 var questionSixTracker = function(question6Val) {
-  if (question6Val === "layout" || question1Val === "fontstyle") {
+  if (question6Val === "layout" || question6Val === "fontstyle") {
     return 0;
   }
-}
+};
+
 var questionSevenTracker = function(question7Val) {
   if (question7Val === "layout" || question1Val === "fontstyle") {
     return 0;
   }
-}
+};
 
-var frontScore = function() {
+var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker) {
   frontScore = 0;
   if (questionOneTracker === "f") {
-    frontScore += frontScore;
+    frontScore += 1;
+    console.log(frontScore);
+    console.log("what?");
   }
   if (questionTwoTracker === "f") {
-    frontScore += frontScore;
+    frontScore += 1;
+    console.log(frontScore);
+    console.log("who?");
   }
   if (questionThreeTracker === "f") {
-    frontScore += frontScore;
+    frontScore += 1;
+    console.log(frontScore);
   }
   if (questionFourTracker === "f") {
-    frontScore += frontScore;
+    frontScore += 1;
+    console.log(frontScore);
   }
   return frontScore;
-}
+};
 
-var backScore = function() {
-  backScore = 0;
+var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker) {
   if (questionOneTracker === "b") {
     backScore += backScore;
+    console.log(backScore);
   }
   if (questionTwoTracker === "b") {
     backScore += backScore;
@@ -80,7 +89,7 @@ var backScore = function() {
     backScore += backScore;
   }
   return backScore;
-}
+};
 
 var frontOrBack = function(frontScore, backScore) {
   if (backScore > frontScore) {
@@ -92,29 +101,37 @@ var frontOrBack = function(frontScore, backScore) {
   else {
     $(".error").show();
   }
-}
+};
 
 $(function() {
   $("#codingsurvey").submit(function(event) {
-    alert("I'm lovin' it!");
+    console.log("I'm lovin' it!");
     event.preventDefault();
-    var question1Val = $("input:radio[name=question1]:checked").val());
-    var question2Val = $("input:radio[name=question2]:checked").val());
-    var question3Val = $("input:radio[name=question3]:checked").val());
-    var question4Val = $("input:radio[name=question4]:checked").val());
-    var question5Val = $("input:radio[name=question5]:checked").val());
-    var question6Val = $("input:radio[name=question6]:checked").val());
-    var question7Val = $("input:radio[name=question7]:checked").val());
+    var question1Val = $("input:radio[name=question1]:checked").val();
+    var question2Val = $("input:radio[name=question2]:checked").val();
+    var question3Val = $("input:radio[name=question3]:checked").val();
+    var question4Val = $("input:radio[name=question4]:checked").val();
+    var question5Val = $("input:radio[name=question5]:checked").val();
+    var question6Val = $("input:radio[name=question6]:checked").val();
+    var question7Val = $("input:radio[name=question7]:checked").val();
 
-    var frontEnd = frontScore(question1Val, question2Val, question3Val, question4Val);
-    var backEnd = backScore(question1Val, question2Val, question3Val, question4Val);
+    questionOneTracker = questionOneTracker(question1Val);
+    questionTwoTracker = questionTwoTracker(question1Val);
+    questionThreeTracker = questionThreeTracker(question1Val);
+    questionFourTracker = questionFourTracker(question1Val);
+    questionFiveTracker = questionFiveTracker(question1Val);
+    questionSixTracker = questionSixTracker(question1Val);
+    questionSevenTracker = questionSevenTracker(question1Val);
 
-    frontOrBack(frontScore, backScore);
+    var frontEnd = frontScore(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker);
+    var backEnd = backScore(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker);
 
-    var cSharpTracker = 0;
+    frontOrBack(frontEnd, backEnd);
+
+    /*var cSharpTracker = 0;
     var javaTracker = 0;
     var phpTracker = 0;
-    var rubyTracker = 0;
+    var rubyTracker = 0;*/
 
   });
 });
