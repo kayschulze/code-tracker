@@ -25,6 +25,10 @@ h3 {
   display: none;
 }
 
+.either {
+  display: none;
+}
+
 .error {
   display: none;
 }
