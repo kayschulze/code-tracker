@@ -37,7 +37,6 @@ var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeT
     frontScore += 1;
   }
   return frontScore;
-  console.log("frontScore: " + frontScore);
 };
 
 var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker) {
@@ -53,7 +52,6 @@ var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTr
   }
   return backScore;
     alert("hi");
-  console.log("backscore: " + backScore);
 };
 
 var frontOrBack = function(frontScore, backScore) {
@@ -82,7 +80,6 @@ var cSharpScore = function(question4Val, question5Val, question6Val, question7Va
   if (question7Val == "large") {
     cSharpTracker += 1;
   }
-  console.log("cSharp: " + cSharpTracker);
   return cSharpTracker;
 };
 
@@ -100,7 +97,6 @@ var javaScore = function(question4Val, question5Val, question6Val, question7Val)
   if (question7Val == "enterprise") {
     javaTracker += 1;
   }
-  console.log("Java: " + javaTracker);
   return javaTracker;
 };
 
@@ -118,7 +114,6 @@ var phpScore = function(question4Val, question5Val, question6Val, question7Val) 
   if (question7Val == "government") {
     phpTracker += 1;
   }
-  console.log("php: " + phpTracker);
   return phpTracker;
 };
 
@@ -136,7 +131,6 @@ var rubyScore = function(question4Val, question5Val, question6Val, question7Val)
   if (question7Val == "startup") {
     rubyTracker += 1;
   }
-  console.log("Ruby: " + rubyTracker);
   return rubyTracker;
 };
 
@@ -168,6 +162,26 @@ var bestLanguage = function(cSharpScore, javaScore, phpScore, rubyScore) {
 }
 
 $(function() {
+  $(".clickable-css").click(function() {
+    $(".css-design").show();
+  });
+
+  $(".clickable-csharp").click(function() {
+    $(".c-sharp").show();
+  });
+
+  $(".clickable-java").click(function() {
+    $(".java").show();
+  });
+
+  $(".clickable-php").click(function() {
+    $(".php").show();
+  });
+
+  $(".clickable-ruby").click(function() {
+    $(".ruby").show();
+  });
+
   $("#codingsurvey").submit(function(event) {
     event.preventDefault();
     var question1Val = $("input:radio[name=question1]:checked").val();
@@ -179,11 +193,8 @@ $(function() {
     var question7Val = $("input:radio[name=question7]:checked").val();
 
     questionOneTracker = questionOneTracker(question1Val);
-    console.log(questionOneTracker);
     questionTwoTracker = questionTwoTracker(question2Val);
-    console.log(questionTwoTracker);
     questionThreeTracker = questionThreeTracker(question3Val);
-    console.log(questionThreeTracker);
 
     var frontEnd = frontScore(questionOneTracker, questionTwoTracker, questionThreeTracker);
     var backEnd = backScore(questionOneTracker, questionTwoTracker, questionThreeTracker);

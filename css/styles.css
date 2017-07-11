@@ -48,3 +48,48 @@ h3 {
 .ruby {
   display: none;
 }
+
+.clickable-css {
+  cursor: pointer;
+  color: blue;
+}
+
+.clickable-css:hover {
+  text-decoration: underline;
+}
+
+.clickable-csharp {
+  cursor: pointer;
+  color: blue;
+}
+
+.clickable-csharp:hover {
+  text-decoration: underline;
+}
+
+.clickable-java {
+  cursor: pointer;
+  color: blue;
+}
+
+.clickable-java:hover {
+  text-decoration: underline;
+}
+
+.clickable-php {
+  cursor: pointer;
+  color: blue;
+}
+
+.clickable-php:hover {
+  text-decoration: underline;
+}
+
+.clickable-ruby {
+  cursor: pointer;
+  color: blue;
+}
+
+.clickable-ruby:hover {
+  text-decoration: underline;
+}
