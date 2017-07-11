@@ -145,10 +145,10 @@ var bestLanguage = function(cSharpScore, javaScore, phpScore, javaScore) {
     $(".java").show();
   }
   if (phpScore >= cSharpScore && phpScore >= javaScore && phpScore >= rubyScore) {
-    $(".java").show();
+    $(".php").show();
   }
   if (rubyScore >= cSharpScore && rubyScore >= javaScore && rubyScore >= phpScore) {
-    $(".java").show();
+    $(".ruby").show();
   }
 }
 
@@ -178,7 +178,7 @@ $(function() {
     phpScore(question5Val, question6Val, question7Val);
     rubyScore(question5Val, question6Val, question7Val);
 
-    bestLanguage(cSharpScore, javaScore, phpScore, javaScore);
+    bestLanguage(cSharpScore, javaScore, phpScore, rubyScore);
 
   });
 });
