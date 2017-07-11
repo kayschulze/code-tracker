@@ -25,16 +25,7 @@ var questionThreeTracker = function(question3Val) {
   }
 };
 
-var questionFourTracker = function(question4Val) {
-  if (question4Val === "design") {
-    return "f";
-  }
-  else {
-    return "b";
-  }
-};
-
-var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker) {
+var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker) {
   frontScore = 0;
   if (questionOneTracker === "f") {
     frontScore += 1;
@@ -45,13 +36,10 @@ var frontScore = function(questionOneTracker, questionTwoTracker, questionThreeT
   if (questionThreeTracker === "f") {
     frontScore += 1;
   }
-  if (questionFourTracker === "f") {
-    frontScore += 1;
-  }
   return frontScore;
 };
 
-var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker, questionFourTracker) {
+var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTracker) {
   backScore = 0;
   if (questionOneTracker === "b") {
     backScore += 1;
@@ -60,9 +48,6 @@ var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTr
     backScore += 1;
   }
   if (questionThreeTracker === "b") {
-    backScore += 1;
-  }
-  if (questionFourTracker === "b") {
     backScore += 1;
   }
   return backScore;
@@ -85,9 +70,12 @@ var frontOrBack = function(frontScore, backScore) {
   }
 };
 
-var cSharpScore = function(question5Val, question6Val, question7Val) {
+var cSharpScore = function(question4Val, question5Val, question6Val, question7Val) {
   cSharpTracker = 0;
-  if (question5Val == "software") {
+  if (question4Val == "microsoft") {
+    cSharpTracker += 1;
+  }
+  if (question5Val == "internalSoftware") {
     cSharpTracker += 1;
   }
   if (question6Val == "software") {
@@ -98,25 +86,31 @@ var cSharpScore = function(question5Val, question6Val, question7Val) {
   }
 };
 
-var javaScore = function(question5Val, question6Val, question7Val) {
+var javaScore = function(question4Val, question5Val, question6Val, question7Val) {
   javaTracker = 0;
-  if (question5Val == "software") {
+  if (question4Val == "oracle") {
+    cSharpTracker += 1;
+  }
+  if (question5Val == "highPerformance") {
     javaTracker += 1;
   }
-  if (question6Val == "software" || question5Val == "mobile") {
+  if (question6Val == "mobile") {
     javaTracker += 1;
   }
-  if (question7Val == "large") {
+  if (question7Val == "enterprise") {
     javaTracker += 1;
   }
 };
 
-var phpScore = function(question5Val, question6Val, question7Val) {
+var phpScore = function(question4Val, question5Val, question6Val, question7Val) {
   phpTracker = 0;
-  if (question5Val == "internet") {
+  if (question4Val == "automemory") {
+    cSharpTracker += 1;
+  }
+  if (question5Val == "professionalWeb") {
     phpTracker += 1;
   }
-  if (question6Val == "web") {
+  if (question6Val == "contentManagement") {
     phpTracker += 1;
   }
   if (question7Val == "government" || "startup") {
@@ -124,12 +118,15 @@ var phpScore = function(question5Val, question6Val, question7Val) {
   }
 };
 
-var rubyScore = function(question5Val, question6Val, question7Val) {
+var rubyScore = function(question4Val, question5Val, question6Val, question7Val) {
   rubyTracker = 0;
-  if (question5Val == "internet") {
+  if (question4Val == "software") {
+    cSharpTracker += 1;
+  }
+  if (question5Val == "creatingAccounts") {
     rubyTracker += 1;
   }
-  if (question6Val == "web") {
+  if (question6Val == "interactiveWeb") {
     rubyTracker += 1;
   }
   if (question7Val == "startup") {
