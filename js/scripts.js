@@ -55,14 +55,12 @@ var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTr
 
 var frontOrBack = function(frontScore, backScore) {
   if (backScore > frontScore) {
-    $(".back-end").show();
-  }
-  else if (frontScore > backScore) {
-    $(".css-design").show();
+    return "back";
   }
   else {
-    $(".error").show();
+    return "front";
   }
+
 };
 
 var cSharpScore = function(question4Val, question5Val, question6Val, question7Val) {
@@ -148,7 +146,7 @@ var bestLanguage = function(cSharpScore, javaScore, phpScore, rubyScore) {
   }
   if (rubyScore >= cSharpScore && rubyScore >= javaScore && rubyScore >= phpScore) {
     hideSpecifics();
-    $(".php").show();
+    $(".ruby").show();
   }
 };
 
@@ -203,14 +201,20 @@ $(function() {
     var frontEnd = frontScore(questionOneTracker, questionTwoTracker, questionThreeTracker);
     var backEnd = backScore(questionOneTracker, questionTwoTracker, questionThreeTracker);
 
-    frontOrBack(frontEnd, backEnd);
+    var toggle = frontOrBack(frontEnd, backEnd);
 
     cSharpScore = cSharpScore(question4Val, question5Val, question6Val, question7Val);
     javaScore = javaScore(question4Val, question5Val, question6Val, question7Val);
     phpScore = phpScore(question4Val, question5Val, question6Val, question7Val);
     rubyScore = rubyScore(question4Val, question5Val, question6Val, question7Val);
 
-    bestLanguage(cSharpScore, javaScore, phpScore, rubyScore);
+    if (toggle === "front") {
+      $(".css-design").show();
+    }
+    else {
+      bestLanguage(cSharpScore, javaScore, phpScore, rubyScore);
+    }
+
 
   });
 });
