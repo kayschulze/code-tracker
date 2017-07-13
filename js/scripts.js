@@ -51,7 +51,6 @@ var backScore = function(questionOneTracker, questionTwoTracker, questionThreeTr
     backScore += 1;
   }
   return backScore;
-    alert("hi");
 };
 
 var frontOrBack = function(frontScore, backScore) {
@@ -135,50 +134,55 @@ var rubyScore = function(question4Val, question5Val, question6Val, question7Val)
 };
 
 var bestLanguage = function(cSharpScore, javaScore, phpScore, rubyScore) {
-  alert(cSharpScore);
-  if (cSharpScore > javaScore && cSharpScore > phpScore && cSharpScore > rubyScore) {
+  if (cSharpScore >= javaScore && cSharpScore >= phpScore && cSharpScore > rubyScore) {
+    hideSpecifics();
     $(".c-sharp").show();
   }
-  else if (javaScore > phpScore && javaScore > rubyScore) {
+  if (javaScore >= cSharpScore && javaScore >= phpScore && javaScore >= rubyScore) {
+    hideSpecifics();
     $(".java").show();
   }
-  else if (phpScore > rubyScore) {
+  if (phpScore >= cSharpScore && phpScore >= javaScore && phpScore >= rubyScore) {
+    hideSpecifics();
     $(".php").show();
   }
-  // else {
-  //   $(".ruby").show();
-  // }
-  // if (cSharpScore >= javaScore && cSharpScore >= phpScore && cSharpScore >= rubyScore) {
-  //   $(".c-sharp").show();
-  // }
-  // else if (javaScore >= cSharpScore && javaScore >= phpScore && javaScore >= rubyScore) {
-  //   $(".java").show();
-  // }
-  // else if (phpScore >= cSharpScore && phpScore >= javaScore && phpScore >= rubyScore) {
-  //   $(".php").show();
-  // }
-  // else if (rubyScore >= cSharpScore && rubyScore >= javaScore && rubyScore >= phpScore) {
-  //   $(".ruby").show();
-}
+  if (rubyScore >= cSharpScore && rubyScore >= javaScore && rubyScore >= phpScore) {
+    hideSpecifics();
+    $(".php").show();
+  }
+};
+
+var hideSpecifics = function () {
+  $(".css-design").hide();
+  $(".c-sharp").hide();
+  $(".java").hide();
+  $(".php").hide();
+  $(".ruby").hide();
+};
 
 $(function() {
   $(".clickable-css").click(function() {
+    hideSpecifics();
     $(".css-design").show();
   });
 
   $(".clickable-csharp").click(function() {
+    hideSpecifics();
     $(".c-sharp").show();
   });
 
   $(".clickable-java").click(function() {
+    hideSpecifics();
     $(".java").show();
   });
 
   $(".clickable-php").click(function() {
+    hideSpecifics();
     $(".php").show();
   });
 
   $(".clickable-ruby").click(function() {
+    hideSpecifics();
     $(".ruby").show();
   });
 
